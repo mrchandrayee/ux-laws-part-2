@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#061020">
+<title>UX Laws in Action — Part 2</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="glow glow-a"></div><div class="glow glow-b"></div>
+<header class="site-head">
+  <a class="wordmark" href="#"><span class="mark">✳</span> UX ENGINEERING <span class="muted">/ FIELD NOTES 02</span></a>
+  <a class="top-link" href="#summary">Six laws <span>↘</span></a>
+</header>
+<main>
+<section class="intro">
+  <div class="kicker"><i></i> UX LAWS IN ACTION · PART 2</div>
+  <h1>More laws.<br><span>Every screen.</span></h1>
+  <p>Six behavioural principles, shown through side-by-side interface experiments. Switch between the patterns and try the demos.</p>
+  <div class="scroll-cue">SCROLL TO EXPLORE <span>↓</span></div>
+</section>
+<section class="law-stack" id="laws">
+  <article class="law" id="law-1">
+    <div class="law-head"><div><div class="law-index">LAW 01 — GOAL GRADIENT</div><h2>Never start at <em>zero.</em></h2></div><span class="law-no">01 / 06</span></div>
+    <div class="compare">
+      <section class="demo bad"><div class="demo-label"><b>×</b> START FROM ZERO</div><div class="demo-inner"><div class="micro-head">REWARDS CARD</div><div class="stamp-grid" id="zeroStamps"></div><div class="progress"><span style="width:0%"></span></div><div class="demo-foot"><strong>0 / 10</strong><small>stamps collected</small></div></div></section>
+      <div class="vs">VS</div>
+      <section class="demo good"><div class="demo-label"><b>✓</b> HEAD START</div><div class="demo-inner"><div class="pill">✓ 2 OF 10</div><div class="micro-head">REWARDS CARD</div><div class="stamp-grid" id="headStamps"></div><div class="progress"><span style="width:20%"></span></div><div class="demo-foot"><strong>2 / 10</strong><small>stamps already earned</small></div></div></section>
+    </div>
+    <div class="law-explain"><div><span class="tag">FIELD NOTE</span><p>People tend to accelerate their effort as they get closer to a goal. A head start can make the finish feel closer and increase follow-through.</p></div><div class="rule"><b>RULE</b><strong>Never start progress at zero.</strong></div></div>
+    <div class="source-note">Endowed progress effect · Nunes &amp; Drèze (2006)</div>
+  </article>
+
+  <article class="law" id="law-2">
+    <div class="law-head"><div><div class="law-index">LAW 02 — POSTEL'S LAW</div><h2>Accept it <em>any way.</em></h2></div><span class="law-no">02 / 06</span></div>
+    <div class="compare">
+      <section class="demo bad"><div class="demo-label"><b>×</b> STRICT INPUT</div><div class="demo-inner"><label class="field-label">Phone number</label><input class="phone-input strict" id="strictPhone" placeholder="(415) 555-0123" maxlength="20"><div class="validation-list"><div>✓ 4155550123 <b class="ok">OK</b></div><div>× (415) 555-0123 <b class="no">Invalid</b></div><div>× 415-555-0123 <b class="no">Invalid</b></div><div>× 415 555 0123 <b class="no">Invalid</b></div></div><div class="demo-foot"><strong id="strictScore">1 of 4</strong><small>input formats accepted</small></div></div></section>
+      <div class="vs">VS</div>
+      <section class="demo good"><div class="demo-label"><b>✓</b> FORGIVING INPUT</div><div class="demo-inner"><label class="field-label">Phone number</label><input class="phone-input forgiving" id="friendlyPhone" placeholder="(415) 555-0123" value="(415) 555-0123"><div class="validation-list friendly"><div>4155550123 <b class="ok">✓</b></div><div>(415) 555-0123 <b class="ok">✓</b></div><div>415-555-0123 <b class="ok">✓</b></div><div>415 555 0123 <b class="ok">✓</b></div></div><div class="demo-foot"><strong id="friendlyScore">4 of 4</strong><small>real-world formats accepted</small></div></div></section>
+    </div>
+    <div class="law-explain"><div><span class="tag">FIELD NOTE</span><p>Be liberal in what you accept, then normalize and validate it. Users should not have to guess the exact punctuation or formatting your system expects.</p></div><div class="rule"><b>RULE</b><strong>Accept different formats. Clean them up.</strong></div></div>
+    <div class="source-note">Robustness principle · Postel's Law (RFC 761)</div>
+  </article>
+
+  <article class="law" id="law-3">
+    <div class="law-head"><div><div class="law-index">LAW 03 — TESLER'S LAW</div><h2>Someone carries <em>the work.</em></h2></div><span class="law-no">03 / 06</span></div>
+    <div class="compare">
+      <section class="demo bad"><div class="demo-label"><b>×</b> MANUAL ENTRY</div><div class="demo-inner address-form"><label>ZIP</label><input placeholder="Enter ZIP"><label>City</label><input placeholder="Type city"><label>State</label><input placeholder="Type state"><label>Street</label><input placeholder="Type street"><div class="demo-foot"><strong>31 keys</strong><small>typed by the person</small></div></div></section>
+      <div class="vs">VS</div>
+      <section class="demo good"><div class="demo-label"><b>✓</b> ZIP FILLS IN</div><div class="demo-inner address-form"><label for="zip">ZIP</label><input id="zip" value="94105" maxlength="5" inputmode="numeric"><label>City</label><input id="city" value="San Francisco" readonly><label>State</label><input id="state" value="CA" readonly><label>Street</label><input id="street" value="1 Market St"><div class="demo-foot"><strong id="keyCount">16 keys</strong><small>typed by the person</small></div><p class="hint" id="zipHint">Edit the ZIP to see the form respond.</p></div></section>
+    </div>
+    <div class="law-explain"><div><span class="tag">FIELD NOTE</span><p>Complexity never disappears; it is either handled by the user or absorbed by the system. Automate predictable work and keep the user focused on what only they can provide.</p></div><div class="rule"><b>RULE</b><strong>The system carries the complexity.</strong></div></div>
+    <div class="source-note">Conservation of complexity · Tesler's Law</div>
+  </article>
+
+  <article class="law" id="law-4">
+    <div class="law-head"><div><div class="law-index">LAW 04 — SIMILARITY</div><h2>Alike means <em>works alike.</em></h2></div><span class="law-no">04 / 06</span></div>
+    <div class="compare">
+      <section class="demo bad"><div class="demo-label"><b>×</b> AMBIGUOUS ROWS</div><div class="settings-list mixed"><div><span>Account</span><span>ada@mail.com</span></div><div><span>Version</span><span>4.2.1</span></div><div class="unclear"><span>Notifications</span><span>On <b>?</b></span></div><div><span>Storage</span><span>12 GB</span></div><div class="unclear"><span>Privacy</span><span>Standard <b>?</b></span></div><div><span>Device</span><span>iPhone</span></div></div><div class="demo-foot"><strong>3 hidden</strong><small>tappable rows missed</small></div></section>
+      <div class="vs">VS</div>
+      <section class="demo good"><div class="demo-label"><b>✓</b> TAPS LOOK TAPPABLE</div><div class="settings-list clear" id="settingsList"><button><span>Account</span><b>›</b></button><button><span>Version</span><b>›</b></button><button><span>Notifications</span><b>›</b></button><button><span>Storage</span><b>›</b></button><button><span>Privacy</span><b>›</b></button><button><span>Device</span><b>›</b></button></div><div class="demo-foot"><strong id="hiddenCount">0 hidden</strong><small>tappable rows missed</small></div><p class="hint" id="settingHint">All six rows have a consistent affordance.</p></section>
+    </div>
+    <div class="law-explain"><div><span class="tag">FIELD NOTE</span><p>Visual similarity creates an expectation of behavioural similarity. If something looks like a control, make it behave like one—or make it look clearly informational.</p></div><div class="rule"><b>RULE</b><strong>What taps must look tappable.</strong></div></div>
+    <div class="source-note">Gestalt principle of similarity</div>
+  </article>
+
+  <article class="law" id="law-5">
+    <div class="law-head"><div><div class="law-index">LAW 05 — SERIAL POSITION</div><h2>First and last <em>stick.</em></h2></div><span class="law-no">05 / 06</span></div>
+    <div class="compare">
+      <section class="demo bad"><div class="demo-label"><b>×</b> IMPORTANT IN THE MIDDLE</div><div class="demo-inner"><div class="chart"><svg viewBox="0 0 300 120" role="img" aria-label="Recall is weakest in the middle"><path d="M8 84 C55 104 75 75 112 53 S205 20 292 8" class="curve"/><circle cx="112" cy="53" r="7" class="point bad-point"/></svg><div class="axis"><span>first</span><span>middle</span><span>last</span></div></div><div class="menu-bar"><span>⌂<small>Home</small></span><span class="selected">▣<small>Cart</small></span><span>♙<small>Profile</small></span></div><div class="demo-foot"><strong>Slot 3</strong><small>middle action recalled least</small></div></div></section>
+      <div class="vs">VS</div>
+      <section class="demo good"><div class="demo-label"><b>✓</b> KEY ACTION AT AN END</div><div class="demo-inner"><div class="chart"><svg viewBox="0 0 300 120" role="img" aria-label="Recall is stronger at the beginning and end"><path d="M8 8 C55 22 80 75 150 83 S240 38 292 12" class="curve"/><circle cx="292" cy="12" r="7" class="point good-point"/></svg><div class="axis"><span>first</span><span>middle</span><span>last</span></div></div><div class="menu-bar"><span>⌂<small>Home</small></span><span>⌕<small>Search</small></span><span class="selected">▣<small>Saved</small></span></div><div class="demo-foot"><strong>Slot 5</strong><small>the end · recalled more</small></div></div></section>
+    </div>
+    <div class="law-explain"><div><span class="tag">FIELD NOTE</span><p>People tend to remember the first and last items in a sequence better than the middle. Place high-priority actions where they are easier to notice and recall.</p></div><div class="rule"><b>RULE</b><strong>Key actions go first or last.</strong></div></div>
+    <div class="source-note">Serial position curve · Murdock (1962)</div>
+  </article>
+
+  <article class="law" id="law-6">
+    <div class="law-head"><div><div class="law-index">LAW 06 — PEAK-END RULE</div><h2>End on a <em>high.</em></h2></div><span class="law-no">06 / 06</span></div>
+    <div class="compare">
+      <section class="demo bad"><div class="demo-label"><b>×</b> COLD FINISH</div><div class="demo-inner"><div class="receipt"><div class="receipt-line">Your request was received.</div><div class="skeleton"></div><div class="skeleton short"></div><div class="receipt-line dim">No further details.</div></div><div class="chart mini"><svg viewBox="0 0 300 100"><path d="M8 45 L65 65 L120 50 L180 72 L245 75 L292 88" class="curve"/><circle cx="292" cy="88" r="7" class="point bad-point"/></svg><div class="axis"><span>Start</span><span>Form</span><span>Pay</span><span>End</span></div></div><div class="demo-foot"><strong>5 / 10</strong><small>remembered · model</small></div></div></section>
+      <div class="vs">VS</div>
+      <section class="demo good"><div class="demo-label"><b>✓</b> WARM FINISH</div><div class="demo-inner"><div class="success-card"><div class="success-icon">✓</div><strong>You're all set!</strong><small>Arriving Thursday · Order confirmed</small><span class="confetti">✦　·　✧</span></div><div class="chart mini"><svg viewBox="0 0 300 100"><path d="M8 18 L65 34 L120 55 L180 72 L245 52 L292 12" class="curve"/><circle cx="292" cy="12" r="7" class="point good-point"/></svg><div class="axis"><span>Browse</span><span>Cart</span><span>Form</span><span>End</span></div></div><div class="demo-foot"><strong>8 / 10</strong><small>remembered · model</small></div></div></section>
+    </div>
+    <div class="law-explain"><div><span class="tag">FIELD NOTE</span><p>People's retrospective evaluation is strongly influenced by the most intense moment and how the experience ends. Make the final step clear, reassuring, and rewarding.</p></div><div class="rule"><b>RULE</b><strong>The last screen writes the memory.</strong></div></div>
+    <div class="source-note">Peak-end rule · Kahneman et al. (1993)</div>
+  </article>
+</section>
+
+<section class="summary" id="summary">
+  <div class="kicker"><i></i> UX LAWS IN ACTION · PART 2</div>
+  <h2>Six more laws.<br><em>Every screen.</em></h2>
+  <div class="summary-list">
+    <div><b>01</b><strong>Goal gradient</strong><span>A head start gets more people finished.</span></div>
+    <div><b>02</b><strong>Postel's law</strong><span>Accept any format, clean it up.</span></div>
+    <div><b>03</b><strong>Tesler's law</strong><span>The system carries the complexity.</span></div>
+    <div><b>04</b><strong>Similarity</strong><span>What taps must look tappable.</span></div>
+    <div><b>05</b><strong>Serial position</strong><span>Key actions go first or last.</span></div>
+    <div><b>06</b><strong>Peak-end rule</strong><span>The last screen writes the memory.</span></div>
+  </div>
+  <div class="creator">@motion_ui_interface</div>
+  <a class="follow" href="#laws">↑ Back to the experiments</a>
+  <p class="save-note">SAVE THIS FOR YOUR NEXT DESIGN REVIEW</p>
+</section>
+</main>
+<footer><span>UX ENGINEERING / FIELD NOTES 02</span><span>Built as a responsive, interactive study project.</span></footer>
+<script src="app.js"></script>
+</body></html>
